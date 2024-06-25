@@ -2,7 +2,7 @@
 
 namespace Certificate.Domain.IRepositories
 {
-    public interface ICertificateRepository : IRepository<UserInfo>
+    internal interface IStudentRepository : IRepository<Student>
     {
     }
 }

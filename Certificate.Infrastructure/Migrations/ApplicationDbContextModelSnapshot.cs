@@ -24,293 +24,246 @@ namespace Certificate.Infrastructure.Migrations
 
             modelBuilder.Entity("Certificate.Domain.Entities.Collection", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<string>("Name")
+                b.Property<string>("name")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<int>("NoOfProject")
+                b.Property<int>("noOfProject")
                     .HasColumnType("int");
 
-                b.Property<string>("Description")
+                b.Property<string>("description")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<DateTime>("CreatedAt")
+                b.Property<DateTime>("createdAt")
                     .HasColumnType("datetime2");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
                 b.ToTable("Collections");
             });
 
             modelBuilder.Entity("Certificate.Domain.Entities.Mentor", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<string>("MentorName")
+                b.Property<string>("mentorName")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("MentorImgSrc")
+                b.Property<string>("mentorImgSrc")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<DateTime>("CreatedAt")
+                b.Property<DateTime>("createdAt")
                     .HasColumnType("datetime2");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
                 b.ToTable("Mentors");
             });
 
             modelBuilder.Entity("Certificate.Domain.Entities.Project", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<int?>("CollectionId")
+                b.Property<int?>("collectionId")
                     .HasColumnType("int");
 
-                b.Property<string>("Name")
+                b.Property<string>("name")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Description")
+                b.Property<string>("description")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("ProjectBgImage")
+                b.Property<string>("projectBgImage")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<DateTime>("CreatedAt")
+                b.Property<DateTime>("createdAt")
                     .HasColumnType("datetime2");
 
-                b.Property<DateTime>("LastUpdated")
+                b.Property<DateTime>("lastUpdated")
                     .HasColumnType("datetime2");
 
-                b.Property<int>("CredentialsNo")
+                b.Property<int>("credentialsNo")
                     .HasColumnType("int");
 
-                b.Property<int>("UnpublishedNo")
+                b.Property<int>("unpublishedNo")
                     .HasColumnType("int");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
-                b.HasIndex("CollectionId");
+                b.HasIndex("collectionId");
 
                 b.ToTable("Projects");
             });
 
             modelBuilder.Entity("Certificate.Domain.Entities.Course", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<string>("CourseName")
+                b.Property<string>("courseName")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<int>("IdentifierId")
+                b.Property<int>("identifierId")
                     .HasColumnType("int");
 
-                b.Property<string>("CourseWebsite")
+                b.Property<string>("courseWebsite")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Description")
+                b.Property<string>("description")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Skills")
+                b.Property<string>("skills")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Primary")
+                b.Property<string>("primary")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("BgImgSrc")
+                b.Property<string>("bgImgSrc")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("CertificateImage")
+                b.Property<string>("certificateImage")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("BadgeImage")
+                b.Property<string>("badgeImage")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<DateTime>("PublishAt")
+                b.Property<DateTime>("publishAt")
                     .HasColumnType("datetime2");
 
-                b.Property<int>("Like")
+                b.Property<int>("like")
                     .HasColumnType("int");
 
-                b.Property<int>("NoOfMembers")
+                b.Property<int>("noOfMembers")
                     .HasColumnType("int");
 
-                b.Property<DateTime>("CreatedAt")
+                b.Property<DateTime>("createdAt")
                     .HasColumnType("datetime2");
 
-                b.Property<DateTime>("LastUpdated")
+                b.Property<DateTime>("lastUpdated")
                     .HasColumnType("datetime2");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
-                b.HasIndex("IdentifierId");
+                b.HasIndex("identifierId");
 
                 b.ToTable("Courses");
             });
 
             modelBuilder.Entity("Certificate.Domain.Entities.ProjectCourse", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<int>("ProjectId")
+                b.Property<int>("projectId")
                     .HasColumnType("int");
 
-                b.Property<int>("CourseId")
+                b.Property<int>("courseId")
                     .HasColumnType("int");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
-                b.HasIndex("ProjectId");
+                b.HasIndex("projectId");
 
-                b.HasIndex("CourseId");
+                b.HasIndex("courseId");
 
                 b.ToTable("ProjectCourse");
             });
 
             modelBuilder.Entity("Certificate.Domain.Entities.Student", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<string>("FirstName")
+                b.Property<string>("firstName")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("LastName")
+                b.Property<string>("lastName")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Email")
+                b.Property<string>("email")
                     .IsRequired()
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("ImgSrc")
+                b.Property<string>("imgSrc")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("PhoneNo")
+                b.Property<string>("phoneNo")
                     .HasColumnType("nvarchar(max)");
 
-                b.Property<string>("Address")
+                b.Property<string>("address")
                     .HasColumnType("nvarchar(max)");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
                 b.ToTable("Students");
             });
 
             modelBuilder.Entity("Certificate.Domain.Entities.CourseStudent", b =>
             {
-                b.Property<int>("Id")
+                b.Property<int>("id")
                     .ValueGeneratedOnAdd()
                     .HasColumnType("int");
 
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"), 1L, 1);
 
-                b.Property<int>("CourseId")
+                b.Property<int>("courseId")
                     .HasColumnType("int");
 
-                b.Property<int>("StudentId")
+                b.Property<int>("studentId")
                     .HasColumnType("int");
 
-                b.HasKey("Id");
+                b.HasKey("id");
 
-                b.HasIndex("CourseId");
+                b.HasIndex("courseId");
 
-                b.HasIndex("StudentId");
+                b.HasIndex("studentId");
 
                 b.ToTable("CourseStudent");
             });
 
-            modelBuilder.Entity("Certificate.Domain.Entities.UserInfo", b =>
-            {
-                b.Property<int>("Id")
-                    .ValueGeneratedOnAdd()
-                    .HasColumnType("int");
-
-                SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                b.Property<int>("CourseId")
-                    .HasColumnType("int");
-
-                b.Property<DateTime>("CreatedAt")
-                    .HasColumnType("datetime2");
-
-                b.Property<string>("Email")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("IssueDate")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("Name")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.Property<string>("PublishId")
-                    .IsRequired()
-                    .HasColumnType("nvarchar(max)");
-
-                b.HasKey("Id");
-
-                b.HasIndex("CourseId");
-
-                b.ToTable("UserInfos");
-            });
-
-            modelBuilder.Entity("Certificate.Domain.Entities.UserInfo", b =>
-            {
-                b.HasOne("Certificate.Domain.Entities.Course", "Course")
-                    .WithMany("UserInfos")
-                    .HasForeignKey("CourseId")
-                    .OnDelete(DeleteBehavior.Cascade)
-                    .IsRequired();
-
-                b.Navigation("Course");
-            });
 
             modelBuilder.Entity("Certificate.Domain.Entities.Project", b =>
             {
                 b.HasOne("Certificate.Domain.Entities.Collection", "Collection")
                     .WithMany("Projects")
-                    .HasForeignKey("CollectionId");
+                    .HasForeignKey("collectionId");
 
                 b.Navigation("Collection");
             });
@@ -319,7 +272,7 @@ namespace Certificate.Infrastructure.Migrations
             {
                 b.HasOne("Certificate.Domain.Entities.Mentor", "Mentor")
                     .WithMany("Courses")
-                    .HasForeignKey("IdentifierId")
+                    .HasForeignKey("identifierId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
@@ -330,13 +283,13 @@ namespace Certificate.Infrastructure.Migrations
             {
                 b.HasOne("Certificate.Domain.Entities.Project", "Project")
                     .WithMany("ProjectCourses")
-                    .HasForeignKey("ProjectId")
+                    .HasForeignKey("projectId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
                 b.HasOne("Certificate.Domain.Entities.Course", "Course")
                     .WithMany("ProjectCourses")
-                    .HasForeignKey("CourseId")
+                    .HasForeignKey("courseId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
@@ -349,13 +302,13 @@ namespace Certificate.Infrastructure.Migrations
             {
                 b.HasOne("Certificate.Domain.Entities.Course", "Course")
                     .WithMany("CourseStudents")
-                    .HasForeignKey("CourseId")
+                    .HasForeignKey("courseId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
                 b.HasOne("Certificate.Domain.Entities.Student", "Student")
                     .WithMany("CourseStudents")
-                    .HasForeignKey("StudentId")
+                    .HasForeignKey("studentId")
                     .OnDelete(DeleteBehavior.Cascade)
                     .IsRequired();
 
@@ -371,7 +324,6 @@ namespace Certificate.Infrastructure.Migrations
 
             modelBuilder.Entity("Certificate.Domain.Entities.Course", b =>
             {
-                b.Navigation("UserInfos");
                 b.Navigation("ProjectCourses");
                 b.Navigation("CourseStudents");
             });
